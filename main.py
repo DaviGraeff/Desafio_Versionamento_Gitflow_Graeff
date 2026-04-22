@@ -3,9 +3,12 @@ from colorama import Fore, init
 
 init(autoreset=True)
 
-# --- funções de Operação ---
+# --- Funções de Operação ---
 def somar(a, b):
     return a + b
+
+def subtrair(a, b):
+    return a - b
 
 # histórico simples
 hist = []
@@ -22,7 +25,7 @@ while True:
     if op == "+":
         r = somar(a, b)
     elif op == "-":
-        r = a - b
+        r = subtrair(a, b)
     elif op == "*":
         r = a * b
     elif op == "/":
