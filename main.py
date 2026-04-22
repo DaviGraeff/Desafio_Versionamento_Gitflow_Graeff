@@ -13,6 +13,9 @@ def subtrair(a, b):
 def multiplicar(a, b):
     return a * b
 
+def dividir(a, b):
+    return a / b if b != 0 else "erro"
+
 # histórico simples
 hist = []
 
@@ -32,7 +35,7 @@ while True:
     elif op == "*":
         r = multiplicar(a, b)
     elif op == "/":
-        r = a / b if b != 0 else "erro"
+        r = dividir(a, b)
     else:
         print(Fore.RED + "Operação inválida")
         continue
