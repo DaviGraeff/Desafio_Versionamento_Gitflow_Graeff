@@ -3,6 +3,10 @@ from colorama import Fore, init
 
 init(autoreset=True)
 
+# --- funções de Operação ---
+def somar(a, b):
+    return a + b
+
 # histórico simples
 hist = []
 
@@ -14,8 +18,9 @@ while True:
     a = float(input("Valor 1: "))
     b = float(input("Valor 2: "))
 
+    # operações
     if op == "+":
-        r = a + b
+        r = somar(a, b)
     elif op == "-":
         r = a - b
     elif op == "*":
