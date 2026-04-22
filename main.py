@@ -23,9 +23,14 @@ while True:
     op = input("\nOperação (+ - * /) ou 'sair': ")
     if op == "sair":
         break
-
-    a = float(input("Valor 1: "))
-    b = float(input("Valor 2: "))
+    
+    # --- Contribuição Eiji: Tratamento de Erro caso não seja um número. ---
+    try:
+        a = float(input("Valor 1: "))
+        b = float(input("Valor 2: "))
+    except ValueError:
+        print("Erro: Digite apenas números válidos!")
+        continue
 
     # operações
     if op == "+":
