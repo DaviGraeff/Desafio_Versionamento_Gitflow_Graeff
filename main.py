@@ -10,6 +10,9 @@ def somar(a, b):
 def subtrair(a, b):
     return a - b
 
+def multiplicar(a, b):
+    return a * b
+
 # histórico simples
 hist = []
 
@@ -27,7 +30,7 @@ while True:
     elif op == "-":
         r = subtrair(a, b)
     elif op == "*":
-        r = a * b
+        r = multiplicar(a, b)
     elif op == "/":
         r = a / b if b != 0 else "erro"
     else:
