@@ -11,9 +11,9 @@ Projeto desenvolvido com objetivo principal de praticar conceitos de Git, versio
 
 
 # Tecnologias utilizadas
-* Python
-* Pandas
-* Colorama
+* Python - estrutura do código
+* Pandas - organizar e exibir o histórico das operações de forma estruturada 
+* Colorama - adicionar cores ao terminal melhorando a experiência visual
 
 
 # Aviso
