@@ -19,3 +19,12 @@ Projeto desenvolvido com objetivo principal de praticar conceitos de Git, versio
 # Aviso
 Este é um projeto de estudo, sem fins comerciais.
 Não representa um produto final ou pronto para uso em produção.
+
+# Configuração do pre-commit hook
+Após clonar o repositório, execute o script abaixo para ativar os hooks locais:
+
+```bash
+./scripts/setup-hooks.sh
+```
+
+Esse script configura o `core.hooksPath` para `.githooks`, garantindo que o hook de pre-commit seja executado antes de cada commit local.

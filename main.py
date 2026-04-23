@@ -1,66 +1,51 @@
-import pandas as pd
-from colorama import Fore, init
-from typing import Union
+import argparse
+import subprocess
+import sys
 
-init(autoreset=True)
+from utils.operacoes import Operacoes
+from exceptions import OperationError, NumericValueError
 
-# --- Funções com Type Hints e Docstrings ---
+def run_app() -> None:
+    from interface import ask_operation, read_number, show_error, show_history, show_result
 
-def somar(a: float, b: float) -> float:
-    """Retorna a soma de dois números."""
-    return a + b
+    hist = []
 
-def subtrair(a: float, b: float) -> float:
-    """Retorna a diferença entre dois números."""
-    return a - b
+    while (op := ask_operation()).lower() != "sair":
+        try:
+            Operacoes.raise_if_operation_not_enabled(op)
+            a = read_number("Valor 1: ")
+            b = read_number("Valor 2: ")
+            resultado = Operacoes.executar_operacao(op, a, b)
+            show_result(resultado)
+            hist.append([op, a, b, resultado])
+        except (OperationError, NumericValueError) as e:
+            show_error(e)
+            continue
 
-def multiplicar(a: float, b: float) -> float:
-    """Retorna o produto de dois números."""
-    return a * b
+    show_history(hist)
 
-def dividir(a: float, b: float) -> Union[float, str]:
-    """Retorna o quociente ou uma mensagem de erro em caso de divisão por zero."""
-    return a / b if b != 0 else "erro"
 
-# Mapeamento de operações
-operacoes = {
-    "+": somar,
-    "-": subtrair,
-    "*": multiplicar,
-    "/": dividir
-}
+def run_tests() -> int:
+    return subprocess.call([sys.executable, "-m", "pytest", "tests", "-q"])
 
-hist = []
 
-while True:
-    op = input("\nOperação (+ - * /) ou 'sair': ")
-    if op.lower() == "sair":
-        break
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Calculadora com histórico.")
+    parser.add_argument(
+        "--test",
+        action="store_true",
+        help="Executa os testes automatizados da pasta tests.",
+    )
+    args = parser.parse_args()
 
-    if op not in operacoes:
-        print(Fore.RED + "Operação inválida")
-        continue
+    if args.test:
+        return run_tests()
 
-    # --- Contribuição Eiji: Tratamento de Erro caso não seja um número. ---
-    try:
-        a = float(input("Valor 1: "))
-        b = float(input("Valor 2: "))
-    except ValueError:
-        print("Erro: Digite apenas números válidos!")
-        continue
-        
-        # execução dinâmica da função através da chave do dicionário
-        r = operacoes[op](a, b)
-        
-        print(Fore.GREEN + f"Resultado: {r}")
-        hist.append([op, a, b, r])
-    except ValueError:
-        print(Fore.RED + "Erro: Digite apenas valores numéricos.")
+    run_app()
+    return 0
 
-if hist:
-    df = pd.DataFrame(hist, columns=["Op", "A", "B", "Resultado"])
-    print("\nHistórico:")
-    print(df)
 
-    # comentário simulando um erro a ser corrigido no HOTFIX
+if __name__ == "__main__":
+    raise SystemExit(main())
+
     

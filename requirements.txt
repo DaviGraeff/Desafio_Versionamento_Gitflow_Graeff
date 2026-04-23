@@ -12,3 +12,6 @@ tzdata==2024.1
 # opcional (recomendado para estabilidade)
 setuptools>=68
 wheel>=0.40
+
+# testes
+pytest==8.3.3
