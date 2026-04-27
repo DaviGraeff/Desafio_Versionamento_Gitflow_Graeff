@@ -18,4 +18,4 @@ while (op := ask_operation()).lower() != "sair":
 
 show_history(hist)
 
-    
+#simulação de erro para hotfix
