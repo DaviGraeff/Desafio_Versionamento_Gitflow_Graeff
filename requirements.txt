@@ -1,0 +1,17 @@
+# Compatível com Python 3.9
+pandas==2.1.4
+
+# utilidades
+colorama==0.4.6
+
+# dependências comuns que evitam build manual
+python-dateutil==2.9.0.post0
+pytz==2024.1
+tzdata==2024.1
+
+# opcional (recomendado para estabilidade)
+setuptools>=68
+wheel>=0.40
+
+# testes
+pytest==8.3.3
