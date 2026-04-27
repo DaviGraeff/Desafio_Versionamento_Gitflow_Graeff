@@ -51,10 +51,10 @@ Para garantir a qualidade do código colaborativo, temos um hook que roda a suí
 *(Isso configurará o `core.hooksPath` para `.githooks`.)*
 
 ## Tecnologias Utilizadas
-* **Python** - Estrutura principal do código.
-* **Pandas** - Organização e exibição do histórico de operações.
-* **Colorama** - Estilização e cores no terminal para melhor UX.
-* **Pytest** - Framework para criação e execução de testes unitários.
+* **Python** - Estrutura principal do código
+* **Pandas** - Organização e exibição do histórico de operações
+* **Colorama** - Estilização e cores no terminal para melhor UX
+* **Pytest** - Framework para criação e execução de testes unitários
 
 ##  Aviso
 Este é um projeto de estudo, sem fins comerciais. Não representa um produto final ou pronto para uso em produção.
